@@ -1,0 +1,11 @@
+public class Menghitung_Fahrenheit {
+    public double konversi(double celcius){
+        return (celcius * 9/5) + 32;
+    }
+
+    public void tampilkan(double celcius){
+        double hasil = konversi(celcius);
+        System.out.println("Celcius: " + celcius);
+        System.out.println("Fahrenheit: " + hasil);
+    }
+}
