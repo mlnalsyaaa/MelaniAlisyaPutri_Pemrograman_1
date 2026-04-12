@@ -1,4 +1,4 @@
-package P3
+package P3_Pemrograman1;
 import java.util.Scanner;
 public class latihan1 {
     public static void main(String [] args){
@@ -23,7 +23,6 @@ public class latihan1 {
         System.out.println("Total: " + total);
         System.out.println("Diskon: " + diskon);
         System.out.println("Total Bayar: " + totalBayar);
-
         input.close();
     }
     

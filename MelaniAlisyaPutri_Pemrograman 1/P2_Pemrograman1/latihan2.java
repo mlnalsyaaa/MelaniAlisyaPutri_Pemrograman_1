@@ -1,4 +1,4 @@
-package P2;
+package P2_Pemrograman1;
 import java.util.Scanner;
 public class latihan2 {
     public static void main(String args []) {
@@ -10,7 +10,8 @@ public class latihan2 {
         System.out.print("input nama: ");
         nama = input.nextLine();
         System.out.print("input usia: ");
-        usia = input.nextLine();
+        usia = input.nextInt();
+        input.nextLine();
         System.out.print("input tempat lahir: ");
         tempat_lahir = input.nextLine();
         System.out.print("input tanggal lahir: ");
@@ -26,5 +27,6 @@ public class latihan2 {
         System.out.println("TTL: " + tempat_lahir + "," + tanggal_lahir);
         System.out.println("Alamat: " + alamat);
         System.out.println("Nama Orang Tua: " + nama_ortu);
+        input.close();
         }
 }
