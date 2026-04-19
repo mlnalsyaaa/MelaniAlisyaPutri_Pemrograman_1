@@ -3,10 +3,13 @@ import java.util.Scanner;
 public class tugas1 {
     public static void main(String args []) {
         Scanner input = new Scanner(System.in);
+        boolean running = true;
 
+        while (running) {
         System.out.println("===== MENU UTAMA =====");
         System.out.println("1. Sistem Nilai");
         System.out.println("2. Sistem Keuangan");
+        System.out.println("3. Keluar");
         System.out.print("Pilih Menu: ");
         int pilihan = input.nextInt();
 
@@ -45,7 +48,7 @@ public class tugas1 {
                         System.out.println("Grade: E");
                     }
                 }
-                    break;
+                break;
 
             case 2:
                 int total_makan = 0, total_transport = 0, total_belanja = 0;
@@ -81,10 +84,15 @@ public class tugas1 {
                 System.out.println("% Transport: " + (total_transport * 100.0 / total_semua) + "%");
                 System.out.println("% Belanja: " + (total_belanja * 100.0 / total_semua) + "%");
                 break;
+            case 3: 
+                running = false;
+                System.out.println("Terima Kasih!");
+                break;
+
             default:
                 System.out.println("Pilihan Tidak Valid");
         }
-        input.close();
         }
+        input.close();
     }
-    
+}
