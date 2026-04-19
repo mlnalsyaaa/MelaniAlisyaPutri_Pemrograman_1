@@ -7,38 +7,90 @@ public class tugas1 {
 
         while (running) {
         System.out.println("===== MENU UTAMA =====");
-        System.out.println("1. Sistem Nilai");
-        System.out.println("2. Sistem Keuangan");
+        System.out.println("1. Hitung Nilai Akhir");
+        System.out.println("2. Sistem Nilai");
         System.out.println("3. Keluar");
         System.out.print("Pilih Menu: ");
         int pilihan = input.nextInt();
 
         switch (pilihan) {
             case 1:
+                System.out.print("Masukkan Realisasi Kehadiran: ");
+                int realisasi = input.nextInt();
+
+                System.out.print("Masukkan Kehadiran Kamu: ");
+                int presensi = input.nextInt();
+
+                System.out.print("Masukkan Nilai Tugas: ");
+                int tugas = input.nextInt();
+
+                System.out.print("Masukkan Nilai UTS: ");
+                int UTS = input.nextInt();
+
+                System.out.print("Masukkan Nilai UAS: ");
+                int UAS = input.nextInt();
+
+                double hasil_presensi = (double) presensi / realisasi * 10;
+                double hasil_tugas = tugas * 0.2;
+                double hasil_UTS = UTS * 0.3;
+                double hasil_UAS = UAS * 0.4;
+
+                double total = hasil_presensi + hasil_tugas + hasil_UTS + hasil_UAS;
+
+                String grade;
+                if (total >= 80) {
+                    grade = "A";
+                } else if (total >= 70) {
+                    grade = "B";
+                } else if (total >= 60) {
+                    grade = "C";
+                } else if (total >= 55) {
+                    grade = "D";
+                } else {
+                    grade = "E";
+                }   
+
+                double syarat = realisasi * 75.0 / 100.0;
+                System.out.println("\n===== HASIL NILAI =====");
+                if (presensi >= syarat) {
+                    System.out.printf("Nilai Akhir: %.2f\n" , total);
+                    System.out.println("Grade: " + grade);
+                } else {
+                    if (total >= 55) {
+                        System.out.println("Nilai Akhir: 55");
+                        System.out.println("Grade: D");
+                    } else {
+                        System.out.printf("Nilai Akhir: %.2f\n" , total);
+                        System.out.println("Grade: E");
+                    }
+                }
+                break;
+
+            case 2:
                  System.out.print("Masukkan Kehadiran: ");
                  int jmlHadir = input.nextInt();
 
                  System.out.print("Masukkan Nilai Akhir: ");
                  int nilaiAkhir = input.nextInt();
 
-                 String grade;
+                 String grade2;
                  if (nilaiAkhir >= 80) {
-                    grade = "A";
+                    grade2 = "A";
                  } else if (nilaiAkhir >= 70){
-                    grade = "B";
+                    grade2 = "B";
                  } else if (nilaiAkhir >= 60) {
-                    grade = "C";
+                    grade2 = "C";
                  } else if (nilaiAkhir >= 55) {
-                    grade = "D";
+                    grade2 = "D";
                  } else {
-                    grade = "E";
+                    grade2 = "E";
                  }
                 double kehadiran = 21 * 75.0 / 100.0;
 
                 System.out.println("\n===== HASIL NILAI =====");
                 if (jmlHadir >= kehadiran) {
                     System.out.println("Nilai: " + nilaiAkhir);
-                    System.out.println("Grade: " + grade);
+                    System.out.println("Grade: " + grade2);
                 } else {
                     if (nilaiAkhir >= 55) {
                         System.out.println("Nilai: 55");
@@ -50,40 +102,6 @@ public class tugas1 {
                 }
                 break;
 
-            case 2:
-                int total_makan = 0, total_transport = 0, total_belanja = 0;
-                int total_semua = 0;
-
-                for (int i = 1; i <= 7; i ++) {
-                    System.out.println("\n===== HARI KE-" + i + "=====");
-                    System.out.print("Makan: ");
-                    int makan = input.nextInt();
-
-                    System.out.print("Transport: ");
-                    int transport = input.nextInt();
-
-                    System.out.print("Belanja: ");
-                    int belanja = input.nextInt();
-
-                    int total_harian = makan + transport + belanja;
-
-                    System.out.println("Total Hari Ke-" + i + " :" + total_harian);
-                    System.out.println("> % Makan: " + (makan * 100.0 / total_harian) + "%");
-                    System.out.println("> % Transport: " + (transport * 100.0 / total_harian) + "%");
-                    System.out.println("> % Belanja: " + (belanja * 100.0 / total_harian) + "%");
-
-                    total_makan += makan;
-                    total_transport += transport;
-                    total_belanja += belanja;
-                    total_semua += total_harian;
-                }
-
-                System.out.println("\n===== REKAP MINGGUAN =====");
-                System.out.println("Total Pengeluaran: " + total_semua);
-                System.out.println("% Makan: " + (total_makan * 100.0 / total_semua) + "%");
-                System.out.println("% Transport: " + (total_transport * 100.0 / total_semua) + "%");
-                System.out.println("% Belanja: " + (total_belanja * 100.0 / total_semua) + "%");
-                break;
             case 3: 
                 running = false;
                 System.out.println("Terima Kasih!");
